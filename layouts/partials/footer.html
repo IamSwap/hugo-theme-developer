@@ -1,0 +1,17 @@
+<footer class="container mx-auto mt-24">
+    {{ if .Site.Social }}
+        {{ partial "social.html" . }}
+    {{ end }}
+    <p class="text-grey-darker mb-2">
+    {{ with .Site.Params.copyright }}
+        {{ . | markdownify }}
+    {{ else }}
+       © Copyright {{ now.Format "2006"}} {{ .Site.Params.Author }}
+    {{ end }}
+    </p>
+    <p class="text-grey-darker">
+        Powered by <a class="text-black italic" href="http://www.gohugo.io/">Hugo</a> &amp; <a href="https://github.com/iamswap/hugo-theme-developer" class="text-black italic">Developer</a> theme.
+    </p>
+</footer>
+
+{{ partial "js.html" . }}

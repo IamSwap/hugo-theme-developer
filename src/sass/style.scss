@@ -35,6 +35,25 @@
   * @import "components/buttons";
   * @import "components/forms";
   */
+  body {
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  }
+
+  .content {
+    p {
+      margin-bottom: 1.5rem;
+      color: #3d4852;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 800;
+    }
+    a {
+      color: #292929;
+    }
+  }
+
 
  /**
   * This injects all of Tailwind's utility classes, generated based on your

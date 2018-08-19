@@ -1,0 +1,22 @@
+<div class="flex flex-wrap">
+    {{ range where .Paginator.Pages "Params.hidden" "ne" "true" }}
+    {{ $url := replace .Permalink .Site.BaseURL "" }}
+        {{ if ne $url "about/" }}
+            <div class="w-1/2 pr-10 mb-12">
+                <a href="{{ .Permalink }}" class="text-black no-underline hover:text-blue text-2xl font-extrabold block mb-2">{{ .Title }}</a>
+                <a href="{{ .Permalink }}" class="block no-underline">
+                    <div class="text-grey-dark font-light mb-2 text-sm">{{ .Date.Format "January 2, 2006" }} - {{ .ReadingTime }} minute read </div>
+                    <p class="text-grey-darker leading-normal">
+                        {{ if .Site.Params.enableSummary }}
+                            {{ if .Site.Params.useDescriptionReplaceSummary }}
+                                {{ .Description | plainify }}
+                            {{ else }}
+                                {{ .Summary | plainify | htmlUnescape }}
+                            {{ end }}
+                        {{ end }}
+                    </p>
+                </a>
+            </div>
+        {{ end }}
+    {{ end }}
+</div>

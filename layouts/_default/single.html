@@ -1,0 +1,54 @@
+{{ partial "head.html" . }}
+
+{{ partial "nav.html" . }}
+
+<section class="container mx-auto content">
+    <article>
+        <header>
+            <h1 class="text-black no-underline hover:text-blue text-4xl font-extrabold block mb-4">
+                {{ .Title }}
+            </h1>
+            <div class="mb-10">
+                <div class="text-grey-darker font-light mb-2">
+                    Published on {{ .Date.Format "January 2, 2006" }} - {{ .ReadingTime }} minute read
+                </div>
+                <div class="tags">
+                    {{ with .Params.tags }}
+                        {{ if ge (len .) 1 }}
+                            {{ range . }}
+                                <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>
+                            {{ end }}
+                        {{ end }}
+                    {{ end}}
+                </div>
+            </div>
+        </header>
+
+        {{ if .Site.Params.enableToc }}
+            {{ if .TableOfContents }}
+            <div id="toc">
+                {{ .TableOfContents }}
+            </div>
+            {{ end }}
+        {{ end }}
+
+        <section class="text-black font-serif leading-loose text-lg">
+            {{ .Content }}
+        </section>
+    </article>
+
+    {{ if .Site.Params.enableShare }}
+        {{ partial "share.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.enableDisqus }}
+        {{ partial "disqus.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.showLatestPosts }}
+        {{ partial "latest-posts.html" . }}
+    {{ end }}
+
+</section>
+
+{{ partial "footer.html"  . }}

@@ -13,3 +13,8 @@ min_version = "0.41"
 [author]
   name = "Swapnil Bhavsar"
   homepage = "https://swapnil.co"
+
+[[original]]
+  name = "Cactus Plus"
+  homepage = "https://themes.gohugo.io/cactus-plus/"
+  repo = "https://github.com/nodejh/hugo-theme-cactus-plus"
