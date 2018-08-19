@@ -2,39 +2,32 @@
 
 {{ partial "nav.html" . }}
 
-<section class="container mx-auto content">
+<section class="w-full md:w-theme px-4 mx-auto content">
     <article>
         <header>
-            <h1 class="text-black no-underline hover:text-blue text-4xl font-extrabold block mb-4">
+            <h1 class="text-black text-5xl font-extrabold block mb-4">
                 {{ .Title }}
             </h1>
             <div class="mb-10">
                 <div class="text-grey-darker font-light mb-2">
                     Published on {{ .Date.Format "January 2, 2006" }} - {{ .ReadingTime }} minute read
                 </div>
-                <div class="tags">
-                    {{ with .Params.tags }}
-                        {{ if ge (len .) 1 }}
-                            {{ range . }}
-                                <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>
-                            {{ end }}
-                        {{ end }}
-                    {{ end}}
-                </div>
             </div>
         </header>
 
-        {{ if .Site.Params.enableToc }}
-            {{ if .TableOfContents }}
-            <div id="toc">
-                {{ .TableOfContents }}
-            </div>
-            {{ end }}
-        {{ end }}
-
-        <section class="text-black font-serif leading-loose text-lg">
+        <section class="text-black font-serif leading-loose text-lg mb-12">
             {{ .Content }}
         </section>
+
+        {{ with .Params.tags }}
+            {{ if ge (len .) 1 }}
+                <div class="mb-6 py-4">
+                    {{ range . }}
+                        <a class="bg-grey-lighter rounded px-2 py-1 text-sm no-underline hover:bg-grey-light capitalize mr-1" href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>
+                    {{ end }}
+                </div>
+            {{ end }}
+        {{ end}}
     </article>
 
     {{ if .Site.Params.enableShare }}

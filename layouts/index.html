@@ -2,18 +2,11 @@
 
 {{ partial "nav.html" . }}
 
-<!-- {{ partial "profile.html" . }} -->
 
-<section class="container mx-auto">
-    <div class="mb-24">
-        <h1 class="mb-2 text-black font-extrabold text-5xl">{{ .Site.Title }}</h1>
+<section class="w-full md:w-theme px-4 mx-auto">
+    {{ partial "profile.html" . }}
 
-        <p class="text-grey-darker leading-normal pr-10">
-            {{ with .Site.Params.description }}
-                {{ . | markdownify }}
-            {{ end }}
-        </p>
-    </div>
+    <h2 class="mb-12 text-black border-t pt-4 border-grey-lighter">Latest posts</h2>
 
     {{ partial "post-list.html"  . }}
     {{ partial "pagination.html" . }}

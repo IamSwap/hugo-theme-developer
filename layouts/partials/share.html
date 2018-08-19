@@ -1,9 +1,26 @@
-<a class="twitter" href="https://twitter.com/intent/tweet?text={{ .Permalink }} - {{ .LinkTitle }} {{ with .Site.Params.twitter }}by @{{ . }}{{ end }}"><span class="icon-twitter"> {{ .Site.Params.tweet | default "tweet" }}</span></a>
+<div class="py-4 border-t border-grey-lighter">
+    <h4 class="text-black mb-2 text-xl">Found useful? Please share!</h4>
+    <p>Show appreciation by sharing this article with your colleagues!</p>
 
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect"> {{ .Site.Params.share | default "Share" }}</span>
-</a>
+    <div>
+        <a class="no-underline mr-2 bg-grey-lighter hover:bg-grey-light rounded-full w-10 h-10 inline-flex items-center justify-center" title="Send a tweet!" href="https://twitter.com/intent/tweet?text={{ .Permalink }} - {{ .LinkTitle }} {{ with .Site.Params.twitter }}by @{{ . }}{{ end }}" target="_blank">
+            <img src="/images/social-icons/twitter.svg" class="w-4 h-4">
+        </a>
+
+        <a class="no-underline mr-2 bg-grey-lighter hover:bg-grey-light rounded-full w-10 h-10 inline-flex items-center justify-center" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" title="Share on Facebook!" target="_blank">
+            <img src="/images/social-icons/facebook.svg" class="w-4 h-4">
+        </a>
+
+        <a class="no-underline mr-2 bg-grey-lighter hover:bg-grey-light rounded-full w-10 h-10 inline-flex items-center justify-center" title="Share on Google+!" href="https://plus.google.com/share?url={{ .Permalink }}" target="_blank">
+            <img src="/images/social-icons/googleplus.svg" class="w-4 h-4">
+        </a>
+
+        <a class="no-underline mr-2 bg-grey-lighter hover:bg-grey-light rounded-full w-10 h-10 inline-flex items-center justify-center" title="Submit on Reddit!" href="https://reddit.com/submit?url={{ .Permalink }}" target="_blank">
+            <img src="/images/social-icons/reddit.svg" class="w-4 h-4">
+        </a>
+
+        <a class="no-underline mr-2 bg-grey-lighter hover:bg-grey-light rounded-full w-10 h-10 inline-flex items-center justify-center" title="Share on LinkedIn!" href="https://www.linkedin.com/shareArticle?url={{ .Permalink }}" target="_blank">
+            <img src="/images/social-icons/linkedin.svg" class="w-4 h-4">
+        </a>
+    </div>
+</div>

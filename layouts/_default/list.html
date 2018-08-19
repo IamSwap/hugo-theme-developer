@@ -1,0 +1,39 @@
+{{ partial "head.html" . }}
+
+{{ partial "nav.html" . }}
+
+    <section class="w-full md:w-theme px-4 mx-auto">
+        {{ range .Data.Pages.GroupByDate "2006" }}
+            <div class="mb-12">
+                <div class="mb-12">
+                    <h1 class="mb-2 text-black font-extrabold text-5xl">{{ .Key }}</h1>
+                </div>
+
+                <div class="flex flex-wrap">
+                    {{ range .Pages }}
+                        <div class="w-full md:w-1/2 pr-10 mb-12">
+                            <a href="{{ .Permalink }}" class="text-black no-underline hover:text-blue text-2xl font-extrabold block mb-2 text">{{ .Title }}</a>
+                            <a href="{{ .Permalink }}" class="block no-underline">
+                                <div class="text-grey-dark font-light mb-2 text-sm">
+                                    <span>{{ .Date.Format "January 2, 2006" }} - {{ .ReadingTime }} minute read</span>
+                                </div>
+                                <p class="text-grey-darker leading-normal">
+                                    {{ if .Site.Params.enableSummary }}
+                                        {{ if .Site.Params.useDescriptionReplaceSummary }}
+                                            {{ .Description | plainify }}
+                                        {{ else }}
+                                            {{slicestr .Summary 0 120 | markdownify }}...
+                                        {{ end }}
+                                    {{ end }}
+                                </p>
+                            </a>
+                        </div>
+                    {{ end }}
+                </div>
+            </div>
+        {{ end }}
+    </section>
+
+{{ partial "footer.html" . }}
+
+

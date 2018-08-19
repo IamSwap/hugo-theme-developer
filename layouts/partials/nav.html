@@ -1,16 +1,25 @@
-<nav class="container mx-auto py-12 mb-12">
-	{{ $url := replace .Permalink .Site.BaseURL "" }}
-	{{ if not .IsHome }}
-		<a class="text-grey-darker no-underline hover:underline hover:text-blue mr-6" href='{{ .Site.BaseURL }}'>Home</a>
-	{{ end }}
-	<a class="text-grey-darker no-underline hover:underline hover:text-blue mr-6" href='{{ .Site.BaseURL }}blog'>{{ with .Site.Params.blog }}{{ . }}{{ else }}Blog{{ end }}</a>
-	<a class="text-grey-darker no-underline hover:underline hover:text-blue mr-6" href='{{ .Site.BaseURL }}about'>{{ with .Site.Params.about }}{{ . }}{{ else }}About{{ end }}</a>
+<div class="flex items-center py-12 mb-12">
+	<div class="lg:fixed pin-t pin-l lg:m-6 lg:flex hidden">
+		<a href="{{ .Site.BaseURL }}" title="{{ .Site.Title }}" class="text-black no-underline flex items-center">
+			<img src="{{ .Site.BaseURL }}/images/home.svg" class="w-12 h-12 mr-2">
+		</a>
+	</div>
 
-	{{ range $key, $val := .Site.Params.Links }}
-		<a class="text-grey-darker no-underline hover:underline hover:text-blue mr-6" href="{{ $val }}">{{ $key }}</a>
-	{{ end }}
+	<nav class="w-full md:w-theme px-4 mx-auto">
+		{{ $url := replace .Permalink .Site.BaseURL "" }}
+		{{ if not .IsHome }}
+			<a class="text-grey-darker no-underline hover:underline hover:text-blue mr-6" href='{{ .Site.BaseURL }}'>Home</a>
+		{{ end }}
 
-	{{ if .Site.Params.enableRSS }}
-		<a class="text-grey-darker no-underline hover:underline hover:text-blue" href="{{ .Site.RSSLink }}">{{ with .Site.Params.subscribe }}{{ . }}{{ else }}Subscribe{{ end }}</a>
-	{{ end }}
-</nav>
+		<a class="text-grey-darker no-underline hover:underline hover:text-blue mr-6" href='{{ .Site.BaseURL }}blog'>{{ with .Site.Params.blog }}{{ . }}{{ else }}Blog{{ end }}</a>
+		<a class="text-grey-darker no-underline hover:underline hover:text-blue mr-6" href='{{ .Site.BaseURL }}about'>{{ with .Site.Params.about }}{{ . }}{{ else }}About{{ end }}</a>
+
+		{{ range $key, $val := .Site.Params.Links }}
+			<a class="text-grey-darker no-underline hover:underline hover:text-blue mr-6" href="{{ $val }}">{{ $key }}</a>
+		{{ end }}
+
+		{{ if .Site.Params.enableRSS }}
+			<a class="text-grey-darker no-underline hover:underline hover:text-blue" href="{{ .Site.RSSLink }}">{{ with .Site.Params.subscribe }}{{ . }}{{ else }}Subscribe{{ end }}</a>
+		{{ end }}
+	</nav>
+</div>

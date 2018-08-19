@@ -1,20 +1,8 @@
 <div id="social">
-{{ if eq .Site.Params.iconFont "font-awesome" }}
-	
-	{{ range $key, $val := .Site.Social }}
-    <a class="symbol" href="{{ $val }}">
-        <i class="fa fa-{{ $key }}"></i>
-    </a>
-    {{ end }}
-
-{{ else }}
-	
-	{{ $iconStyle := .Site.Params.socialIconStyle }}
     {{ range $key, $val := .Site.Social }}
-    <a class="symbol" href="{{ $val }}">
-        {{ $iconStyle }}{{ if eq $key "twitter" }}twitterbird{{ else }}{{ $key }}{{ end }}
-    </a>
+        <a href="{{ $val }}" class="no-underline mr-2 bg-grey-lighter hover:bg-grey-light rounded-full w-10 h-10 inline-flex items-center justify-center">
+            <img src="/images/social-icons/{{ $key }}.svg" class="w-4 h-4">
+        </a>
     {{ end }}
-
-{{ end }}
 </div>
+

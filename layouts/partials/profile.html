@@ -1,11 +1,10 @@
-<div class="profile">
-    <section id="wrapper">
-        <header id="header">
-            <a href='{{ with .Site.Params.avatarLink }}{{ . }}{{ else }}{{ .Site.BaseURL }}about{{ end }}'>
-                <img id="avatar" class="2x" src="{{ .Site.BaseURL }}images/avatar.png"/>
-            </a>
-            <h1>{{ .Site.Title }}</h1>
-            {{ with .Site.Params.bio }}<h2>{{ . | markdownify }}</h2>{{ end }}
-        </header>
-    </section>
+<div class="mb-20">
+    <h1 class="mb-4 text-black font-extrabold text-5xl">{{ .Site.Title }}</h1>
+    <p class="text-grey-darker leading-normal pr-10 mb-6">
+        {{ with .Site.Params.description }}
+            {{ . | markdownify }}
+        {{ end }}
+    </p>
+
+    {{ partial "social.html" . }}
 </div>

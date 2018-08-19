@@ -1,0 +1,29 @@
+<div class="mt-16 py-4 border-t border-grey-lighter">
+    <h3 class="text-black mb-2 text-xl">{{ .Site.Params.readMore | default "Latest from blog" }}</h3>
+    <p>You also migtht like these..!</p>
+
+    <div class="flex flex-wrap mt-10">
+        {{ $kind := where .Site.RegularPages "Section" "!=" "" }}
+        {{ $othr := where $kind "URL" "!=" .URL }}
+        {{ range first 4 $othr }}
+            <div class="w-full md:w-1/2 pr-10 mb-8">
+                <a href="{{ .URL }}" class="text-black no-underline hover:text-blue text-2xl font-extrabold block mb-2 text">{{ .LinkTitle }}</a>
+                <a href="{{ .Permalink }}" class="block no-underline">
+                        <div class="text-grey-dark font-light mb-2 text-sm">
+                            <span>{{ .Date.Format "January 2, 2006" }} - {{ .ReadingTime }} minute read</span>
+                        </div>
+                        <p class="text-grey-darker leading-normal">
+                            {{ if .Site.Params.enableSummary }}
+                                {{ if .Site.Params.useDescriptionReplaceSummary }}
+                                    {{ .Description | plainify }}
+                                {{ else }}
+                                    {{slicestr .Summary 0 120 | markdownify }}...
+                                {{ end }}
+                            {{ end }}
+                        </p>
+                    </a>
+            </div>
+        {{ end }}
+    </div>
+
+</div>

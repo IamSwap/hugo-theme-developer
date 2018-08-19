@@ -37,7 +37,7 @@
   */
   body {
     -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	  -moz-osx-font-smoothing: grayscale;
   }
 
   .content {
@@ -50,6 +50,17 @@
       font-weight: 800;
     }
     a {
+      color: #292929;
+    }
+    ol, ul, pre {
+      margin-bottom: 1.6rem;
+    }
+
+  }
+
+  #post-nav {
+    .prev a,
+    .next a {
       color: #292929;
     }
   }

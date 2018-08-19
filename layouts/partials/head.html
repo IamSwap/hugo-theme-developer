@@ -4,7 +4,10 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="{{ .Site.BaseURL }}images/favicon.ico">
+		<link rel="shortcut icon" href="{{ .Site.BaseURL }}images/favicon.ico">
+
+		{{ partial "favicons.html" . }}
+
         <title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} &middot; {{ .Site.Title }}{{ end }}</title>
 
 		{{ if .Site.Params.enableTwitterCard }}
@@ -25,6 +28,7 @@
 
         <!-- Styles -->
 		<link rel="stylesheet" href="{{ .Site.BaseURL }}css/style.css">
+		<link rel="stylesheet" href="{{ .Site.BaseURL }}css/highlight.css">
 
 		{{ range .Site.Params.customCSS }}
 		<link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
