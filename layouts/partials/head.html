@@ -8,14 +8,15 @@
 
 		{{ partial "favicons.html" . }}
 
-        <title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} &middot; {{ .Site.Title }}{{ end }}</title>
+        <title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
 
 		{{ if .Site.Params.enableTwitterCard }}
 			{{ partial "twitter-cards.html" . }}
         {{ end }}
 
 		{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-		{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+		<meta name="title" content="{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}">
+		<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
         {{ .Hugo.Generator }}
 
         <!-- RSS feed -->
