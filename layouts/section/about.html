@@ -1,0 +1,24 @@
+{{ partial "head.html" . }}
+
+{{ partial "nav.html" . }}
+
+<section class="w-full md:w-theme px-4 mx-auto content">
+    <article>
+        <header>
+            <h1 class="text-black text-5xl font-extrabold block mb-4">
+                {{ .Title }}
+            </h1>
+            <div class="mb-10">
+                <div class="text-grey-darker font-light mb-2">
+                    Published on {{ .Date.Format "January 2, 2006" }} - {{ .ReadingTime }} minute read
+                </div>
+            </div>
+        </header>
+
+        <section class="text-black font-serif leading-loose text-lg mb-12">
+            {{ .Content }}
+        </section>
+    </article>
+</section>
+
+{{ partial "footer.html" . }}
