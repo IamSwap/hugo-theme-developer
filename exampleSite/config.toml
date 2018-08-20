@@ -1,0 +1,69 @@
+baseurl = "https://gohugo.io/"
+title = "Developer"
+author = "Swapnil Bhavsar"
+canonifyurls = true
+theme = "hugo-theme-developer"
+googleAnalytics = "UA-000000-0"
+
+[params]
+	author = "Swapnil Bhavsar"
+	description = "Hi! I'm Swapnil Bhavsar &amp; I am a full stack web developer. Here, I blog about Laravel, Vue.js &amp; other web design/development topics."
+
+	# Twitter username
+	twitter = ""
+
+	# Set the value to true if use description in post front matter replace content summary
+    enableSummary = true
+	useDescriptionReplaceSummary = false
+
+	# Enable Google Analytics
+	enableGoogleAnalytics = false
+
+	# Add custom assets with their paths relative to the static folder
+	customCSS = []
+	customJS  = []
+
+	# Copyright text
+	copyright = ""
+
+	# show related posts in single page
+	showRelatedPosts = true
+
+	# Enable RSS feed
+	enableRSS = true
+
+	# SEO options
+	enableRobotsTXT = true
+	canonifyURLs = true
+	enableFavicons = true
+	enableSEOSchema = true
+
+	# Enable Disqus comments
+	enableDisqus = false
+	disqusShortname = "username"
+
+	# Share
+	enableShare = true
+
+	# 404 page
+	title404 = ""
+	subtitle404 = ""
+
+	# Contact Form
+	contactFormEmail = "" # Eg. abc@abc.com
+
+	# Newsletter (https://upscri.be/)
+	enableNewsletter = false
+	upscribeFormId = "" # Eg . 1233245
+
+	# Menu links
+	[params.links]
+		blog = "/blog"
+		about = "/about"
+		contact = "/contact"
+
+# Add social links to follow
+[social]
+	instagram = "https://www.instagram.com/username"
+	twitter = "https://twitter.com/username"
+	github = "https://github.com/username"
