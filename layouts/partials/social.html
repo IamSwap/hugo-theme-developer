@@ -1,14 +1,14 @@
 <div id="social">
     {{ range $key, $val := .Site.Social }}
         <a href="{{ $val }}" class="no-underline mr-2 bg-grey-lighter hover:bg-grey-light rounded-full w-10 h-10 inline-flex items-center justify-center">
-            <img src="/images/social-icons/{{ $key }}.svg" class="w-4 h-4">
+            <img src="/images/social-icons/{{ $key }}.svg" alt="{{ $key }}" class="w-4 h-4">
         </a>
     {{ end }}
 
 
     {{ if .Site.Params.enableRSS }}
 		<a class="no-underline mr-2 bg-grey-lighter hover:bg-grey-light rounded-full w-10 h-10 inline-flex items-center justify-center" href="{{ .Site.RSSLink }}">
-			<img src="/images/social-icons/rss.svg" class="w-4 h-4">
+			<img src="/images/social-icons/rss.svg" alt="rss" class="w-4 h-4">
 		</a>
 	{{ end }}
 </div>
