@@ -1,0 +1,13 @@
+{{ partial "head.html" . }}
+
+{{ partial "nav.html" . }}
+
+
+<section class="w-full md:w-theme px-4 mx-auto">
+    <header>
+        <h1 class="mb-4 text-black font-extrabold text-5xl">{{ with .Site.Params.title404 }}{{ . }}{{ else }}404 - Page not found{{ end }}</h1>
+        <p class="text-grey-darker leading-normal pr-10 mb-6">{{ with .Site.Params.subtitle404 }}{{ . }}{{ else }}The content you're looking for doesn't seem to exist.{{ end }}</p>
+    </header>
+</section>
+
+{{ partial "footer.html"  . }}

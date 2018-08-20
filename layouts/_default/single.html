@@ -38,8 +38,8 @@
         {{ partial "disqus.html" . }}
     {{ end }}
 
-    {{ if .Site.Params.showLatestPosts }}
-        {{ partial "latest-posts.html" . }}
+    {{ if .Site.Params.showRelatedPosts }}
+        {{ partial "related-posts.html" . }}
     {{ end }}
 
 </section>
