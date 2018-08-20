@@ -2,12 +2,29 @@
 
 {{ partial "nav.html" . }}
 
-
 <section class="w-full md:w-theme px-4 mx-auto">
+
     <h1 class="mb-4 text-black font-extrabold text-5xl">{{ .Title }}</h1>
-    <p class="text-grey-darker leading-normal pr-10 mb-6">
-        Have question? Feel free to drop below!
+    <p class="text-grey-darker leading-normal pr-10 mb-12">
+        {{ .Description }}
     </p>
+
+    <form method="POST" action="https://formspree.io/{{ .Site.Params.contactFormEmail }}">
+        <div class="w-full md:flex mb-6">
+            <div class="md:w-1/2 md:mr-6 md:mb-0 mb-6">
+                <input type="text" name="name" placeholder="Your name" class="border w-full rounded px-3 py-4" required>
+            </div>
+            <div class="md:w-1/2">
+                <input type="email" name="email" placeholder="Your email" class="border w-full rounded px-3 py-4" required>
+            </div>
+        </div>
+        <div class="mb-6">
+            <textarea name="message" placeholder="Your message" class="border w-full rounded px-3 py-4 h-48" required></textarea>
+        </div>
+        <input type="text" name="_gotcha" style="display:none" class="hidden" />
+        <input type="hidden" name="_next" value="{{ .Site.BaseURL }}/thank-you" />
+        <button type="submit" class="border border-blue text-blue px-12 py-4 rounded w-full md:w-64 text-center hover:border-blue-dark hover:text-blue-dark">Send Message!</button>
+    </form>
 
 </section>
 

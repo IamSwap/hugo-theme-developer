@@ -34,6 +34,12 @@
         {{ partial "share.html" . }}
     {{ end }}
 
+    {{ if .Site.Params.enableNewsletter }}
+    <div class="border rounded mt-16">
+        <iframe src="https://upscri.be/{{ .Site.Params.upscribeId }}?as_embed" height="300" frameborder="0" style="width:100%;max-width:800px;margin:0 auto;"></iframe>
+    </div>
+    {{ end }}
+
     {{ if .Site.Params.enableDisqus }}
         {{ partial "disqus.html" . }}
     {{ end }}

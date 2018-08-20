@@ -8,11 +8,9 @@
             <h1 class="text-black text-5xl font-extrabold block mb-4">
                 {{ .Title }}
             </h1>
-            <div class="mb-10">
-                <div class="text-grey-darker font-light mb-2">
-                    Published on {{ .Date.Format "January 2, 2006" }} - {{ .ReadingTime }} minute read
-                </div>
-            </div>
+            <p class="text-grey-darker leading-normal pr-10 mb-12">
+                {{ .Description }}
+            </p>
         </header>
 
         <section class="text-black font-serif leading-loose text-lg mb-12">
