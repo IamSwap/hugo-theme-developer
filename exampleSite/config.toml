@@ -4,6 +4,9 @@ author = "Swapnil Bhavsar"
 canonifyurls = true
 theme = "hugo-theme-developer"
 googleAnalytics = "UA-000000-0"
+languageCode = "en"
+enableRobotsTXT = true
+canonifyURLs = true
 
 [params]
 	author = "Swapnil Bhavsar"
@@ -34,9 +37,10 @@ googleAnalytics = "UA-000000-0"
 
 	# SEO options
 	enableRobotsTXT = true
-	canonifyURLs = true
-	enableFavicons = true
 	enableSEOSchema = true
+
+	# Enable offline browsing
+	enableOffline = false
 
 	# Enable Disqus comments
 	enableDisqus = false

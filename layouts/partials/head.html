@@ -4,13 +4,11 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" href="{{ .Site.BaseURL }}images/favicon.ico">
+		<link rel="shortcut icon" href="{{ .Site.BaseURL }}/favicon.ico">
 
 		<title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
 
-		{{ if .Site.Params.enableFavicons }}
-			{{ partial "favicons.html" . }}
-		{{ end }}
+		{{ partial "favicons.html" . }}
 
 		{{ if .Site.Params.enableSEOSchema }}
 			{{ partial "seo-schema.html" . }}
