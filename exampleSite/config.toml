@@ -36,7 +36,6 @@ canonifyURLs = true
 	enableRSS = true
 
 	# SEO options
-	enableRobotsTXT = true
 	enableSEOSchema = true
 
 	# Enable offline browsing
