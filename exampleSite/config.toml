@@ -40,7 +40,7 @@ canonifyURLs = true
 	enableSEOSchema = true
 
 	# Enable offline browsing
-	enableOffline = false
+	enableOffline = true
 
 	# Enable Disqus comments
 	enableDisqus = false
