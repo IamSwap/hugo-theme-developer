@@ -13,6 +13,12 @@
 <meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
 <meta name="twitter:creator" content="@{{ .Site.Params.twitter }}" />
 
+{{ if .Site.Params.thumbnailImage }}
+  <meta name="twitter:image" content="{{ .Site.Params.thumbnailImage | absURL }}" />
+{{ else }}
+  <meta name="twitter:image" content="{{ .Site.BaseURL }}images/tn.png" />
+{{ end }}
+
 <!-- OG data -->
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
@@ -20,8 +26,20 @@
 <meta content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" property="og:description">
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
-{{ range .Params.categories }}<meta property="article:section" content="{{ . }}" />{{ end }}
-{{ if isset .Params "date" }}<meta property="article:published_time" content="{{ time .Date }}" />{{ end }}
+
+{{ range .Params.categories }}
+  <meta property="article:section" content="{{ . }}" />
+{{ end }}
+
+{{ if isset .Params "date" }}
+  <meta property="article:published_time" content="{{ time .Date }}" />
+{{ end }}
+
+{{ if .Site.Params.thumbnailImage }}
+  <meta property="og:image" content="{{ .Site.Params.thumbnailImage | absURL }}" />
+{{ else }}
+  <meta property="og:image" content="{{ .Site.BaseURL }}images/tn.png" />
+{{ end }}
 
 <!-- JSON-LD -->
 {{ if .IsHome }}

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="{{ .Site.BaseURL }}/favicon.ico">
 
-		<title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+		<title>{{ if .IsHome }}{{ .Title }} - {{ .Site.Params.Tagline }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
 
 		{{ partial "favicons.html" . }}
 

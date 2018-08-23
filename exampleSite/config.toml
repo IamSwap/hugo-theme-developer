@@ -10,7 +10,9 @@ canonifyURLs = true
 
 [params]
 	author = "Swapnil Bhavsar"
-	description = "Hi! I'm Swapnil Bhavsar &amp; I am a full stack web developer. Here, I blog about Laravel, Vue.js &amp; other web design/development topics."
+	description = "Put your site/blog description here!"
+
+	tagline = "Put your tagline here"
 
 	# Twitter username
 	twitter = ""
@@ -37,9 +39,10 @@ canonifyURLs = true
 
 	# SEO options
 	enableSEOSchema = true
+	thumbnailImage = ""
 
 	# Enable offline browsing
-	enableOffline = true
+	enableOffline = false
 
 	# Enable Disqus comments
 	enableDisqus = false
