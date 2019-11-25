@@ -1,24 +1,34 @@
 <div class="flex items-center py-12 mb-12">
-	<div class="lg:fixed pin-t pin-l lg:m-6 lg:flex hidden">
-		<a href="{{ .Site.BaseURL }}" title="{{ .Site.Title }}" class="text-black no-underline flex items-center">
-			<img src="{{ .Site.BaseURL }}/images/home.svg" class="w-12 h-12 mr-2">
-		</a>
-	</div>
+  <div class="lg:fixed pin-t pin-l lg:m-6 lg:flex hidden">
+    <a
+      href="{{ .Site.BaseURL }}"
+      title="{{ .Site.Title }}"
+      class="text-black no-underline flex items-center"
+    >
+      <img src="{{ .Site.BaseURL }}images/home.svg" class="w-12 h-12 mr-2" />
+    </a>
+  </div>
 
-	<nav class="w-full md:w-theme px-4 mx-auto">
-		{{ $url := replace .Permalink .Site.BaseURL "" }}
-		{{ if not .IsHome }}
-			<a class="text-grey-darker no-underline hover:underline hover:text-blue mr-6" href='{{ .Site.BaseURL }}'>Home</a>
-		{{ end }}
-
-		{{ range $key, $val := .Site.Params.Links }}
-			<a class="text-grey-darker no-underline hover:underline hover:text-blue mr-6 capitalize" href="{{ $val }}">{{ $key }}</a>
-		{{ end }}
-
-		{{ if .Site.Params.enableRSS }}
-			<a class="text-grey-darker no-underline hover:underline hover:text-blue" href="{{ .Site.RSSLink }}">
-				<img src="/images/social-icons/rss.svg" alt="rss" class="w-4 h-4">
-			</a>
-		{{ end }}
-	</nav>
+  <nav class="w-full md:w-theme px-4 mx-auto">
+    {{ $url := replace .Permalink .Site.BaseURL "" }} {{ if not .IsHome }}
+    <a
+      class="text-grey-darker no-underline hover:underline hover:text-blue mr-6"
+      href="{{ .Site.BaseURL }}"
+      >Home</a
+    >
+    {{ end }} {{ range $key, $val := .Site.Params.Links }}
+    <a
+      class="text-grey-darker no-underline hover:underline hover:text-blue mr-6 capitalize"
+      href="{{ $val }}"
+      >{{ $key }}</a
+    >
+    {{ end }} {{ if .Site.Params.enableRSS }}
+    <a
+      class="text-grey-darker no-underline hover:underline hover:text-blue"
+      href="{{ .Site.RSSLink }}"
+    >
+      <img src="/images/social-icons/rss.svg" alt="rss" class="w-4 h-4" />
+    </a>
+    {{ end }}
+  </nav>
 </div>
